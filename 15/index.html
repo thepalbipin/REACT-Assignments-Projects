@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>State Uplifting</title>
+  </head>
+  <body>
+    <div id="root">
+    </div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // My Code goes here;
+    
+    function SuperheroCard({name, imageUrl, isMarried, SuperPowers, Address}) {
+      return <>
+            <p>Superhero: {name}</p>
+            <img src={imageUrl} />
+            <p>Married: {isMarried ? 'Yes' : 'No'}</p>
+            <p>Superpowers: {SuperPowers.join(', ')}</p>
+            <p>Address: {Address.City}</p>
+            <p>Address: {Address.State}</p>
+      </>;
+    }
+
+    // Pass the following props here and the same should be displayed in Superhero Card
+    // name - String
+    // imageUrl - String
+    // isMarried - Boolean
+    // Superpowers - Array
+    // address - Object
+
+    function App() {
+      return (
+        <>
+          <SuperheroCard 
+          name="Bipin"
+          imageUrl="https://students.masaischool.com/static/media/masai-logo.e5c8801d4f26d2da036ec9e4b93cb202.svg"
+          isMarried={false} 
+          SuperPowers={["Spritual", "yoga", "reading", "meditation"]} 
+          Address={{City: "Vadodara", State: "Gujarat"}} />
+        </>
+      );
+    }
+
+    let reactRoot = ReactDOM.createRoot(document.getElementById("root"));
+    reactRoot.render(<App />);
+  </script>
+</html>
