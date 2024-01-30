@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>State Management</title>
+  </head>
+  <body>
+    <div id="root">
+    </div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // My Code goes here;
+    // Agenda sending data from child component to parent component
+
+    function Child(props) {
+      
+        const numberType = props.count % 2 === 0 ? "Even" : "Odd";
+        return (
+          <div>
+            <p>Count is {numberType} number</p>
+            <button onClick={() => {
+              props.increment(3);
+            }}>Increment 3</button> 
+
+            <button onClick={() => {
+              props.increment(7);
+            }}>Increment 7</button> 
+
+            </div>
+        );
+    }
+
+    function App (){
+        const [count, setCount] = React.useState(0);
+
+        function incByValue(value) {
+          setCount(count + value);
+        }
+
+        return (
+            <>
+            <h1>Count: {count}</h1>
+            <Child count={count} increment={incByValue} />
+            </>
+        );
+    }
+
+    let rootElement = ReactDOM.createRoot(document.getElementById("root"));
+    rootElement.render(<App />);
+  </script>
+</html>
