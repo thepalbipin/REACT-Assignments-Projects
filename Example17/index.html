@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Boilerplate Code</title>
+</head>
+<body>
+    <div id="root"></div>
+		<script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+	  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+	  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        // Your React code will go here
+
+        function User(props){
+            return(
+                <div>
+                    <h1>User Information</h1>
+                    <p>Name: {props.name}</p>
+                    <p>Age: {props.age}</p>
+                    <p>Email: {props.email}</p>
+                </div>
+            );
+        };
+
+        function ContainerWithBlueBorder(props){
+            return(
+                <div style={{border: '1px solid blue'}}>
+                        {props.children}
+                </div>
+            );
+        };
+
+        function ScoreCard(){
+            return(
+                <div>
+                <h2>Score Card</h2>
+                <p>{runs}-{wickets}</p>    
+                </div>
+            );
+        };
+
+        function App(){
+            return(
+                <>
+                <User name="Bipin" age="26" email="bipinuser@yahoo.com" />
+                <ContainerWithBlueBorder>
+                    <ScoreCard runs={57} wickets={2} />
+                </ContainerWithBlueBorder>
+                </>
+            );
+        };
+    </script>
+</body>
+</html>
