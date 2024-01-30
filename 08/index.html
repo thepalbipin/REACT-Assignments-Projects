@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Template</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+    }
+
+    #navbar {
+      display: flex;
+      justify-content: space-between;
+      background-color: cadetblue;
+      padding: 16px;
+      margin: 0%;
+    }
+
+    #main {
+      height: 260px;
+      background-color: lightslategrey;
+      padding: 10px;
+      margin: 0%;
+    }
+
+    #footer {
+      display: flex;
+      justify-content: space-between;
+      background-color: peachpuff;
+      padding: 16px;
+      margin: 0%;
+    }
+  </style>
+
+
+  </style>
+  <body>
+    <div id="root">
+    </div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // My Code goes here;
+    /*
+    Task 3 :
+Create a React Application :
+
+- This application should have the following components.
+Navbar Component
+div with id navbar with 2 children elements
+child1 is a p element with text "navbar"
+child2 is another p element with text "links will be displayed here"
+- Main Component
+Fragment wrapper
+it should have a p element with text "main content"
+- Footer Component
+div with id footer
+p element with text Footer
+    */
+
+
+    function Navbar(){
+      return (
+        <div id="navbar">
+          <p>navbar</p>
+          <p>links will be displayed here</p>
+        </div>
+      );
+    }
+
+    function Main(){
+      return (
+        <div id="main">
+          <p>main content</p>
+        </div>
+      );
+    }
+
+    function Footer(){
+      return (
+        <div id="footer">
+          <p>Footer</p>
+        </div>
+      );
+    }
+
+    function App(){
+      return (
+        <>
+        <Navbar />
+        <Main />
+        <Footer />
+        </>
+      );
+    }
+
+    let rootElement = ReactDOM.createRoot(document.getElementById("root"));
+    rootElement.render(<App />);
+    
+  </script>
+</html>
