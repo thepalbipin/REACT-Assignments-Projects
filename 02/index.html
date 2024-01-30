@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Intro</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script>
+    // My Code goes here;
+
+  /*  <div className="wrapper">
+  <p id="quote">Carpe Diem</p>
+  <p>Seize the day</p>
+  <div>
+    <p>
+      This is <span>Sparta</span>
+    </p>
+  </div>
+</div>;  */
+
+
+    let element = React.createElement("div",{
+        className: "wrapper",
+        children: [
+            React.createElement("p",{id: "quote"}, "Carpe Diem"),
+            React.createElement("p", {}, "seize the day"),
+            React.createElement("div",{},React.createElement("p",{},"This is ",React.createElement("span",{},"Sparta"),
+                ),
+            ),
+        ],
+    });
+    
+
+    let reactRoot = ReactDOM.createRoot(document.getElementById("root"));
+    reactRoot.render(element);
+  </script>
+</html>
