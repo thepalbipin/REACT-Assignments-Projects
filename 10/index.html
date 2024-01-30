@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>State Management</title>
+  </head>
+  <body>
+    <div id="root">
+    </div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // My Code goes here;
+    function App (){
+        const stateArray = React.useState(0);
+        // console.log(stateArray);
+
+        function handleClick (){
+            stateArray[1](stateArray[0] +5);
+            // stateArray[1](Math.random);
+        }
+        
+        // Increase count --> Click --> HandleClick --> StateArray[1](0)
+        return (
+            <>
+            <p> Count: {stateArray[0]}</p>
+            <button onClick={handleClick}>Increased by 5 </button>
+            </>
+        );
+    }
+
+    let rootElement = ReactDOM.createRoot(document.getElementById("root"));
+    rootElement.render(<App />);
+  </script>
+</html>
