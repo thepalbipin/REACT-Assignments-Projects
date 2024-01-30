@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>State Management</title>
+  </head>
+  <style>
+    body {
+        margin: 0;
+    }
+
+    .navbar{
+        border: solid red;
+    }
+  </style>
+  <body>
+    <div id="root">
+    </div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // My Code goes here;
+
+    function Navbar(props){
+        return (
+            <div className="navbar">
+                <img src={props.logo} alt="logo" />
+                </div>
+            );
+    }
+
+    function Sidebar({count, isVisible}){
+        return <div>
+            <p>Sidebar - {count}</p>
+            <p>Is Sidebar Visible - {isVisible? "Yes" : "No"}</p>
+            </div>;
+    }
+
+    function Main({numberList, UserDetails:{name,address:{street, city, state},}})
+    {
+        // console.log(arr,obj);
+        return (
+            <div>
+                <p>Main</p>
+                <ul>    
+                    {numberList.map(function (item){
+                        return <li>{item}</li>;
+                    })}
+                    </ul>
+                <div>
+                    <p>Name: {name}</p>
+                    <div>
+                        <p> Address: {street}, {city}, {state} </p>
+                        </div>
+                    </div>
+                </div>
+            );
+    }
+
+    function Footer({foo}){
+        return (
+            <div>
+                <p>footer</p>
+                <button onClick={foo}>Print Foo</button>
+                </div>
+        );
+    }
+
+    function App() {
+
+        function foo(){
+            console.log("foo");
+        }
+        return(
+            <>
+                <Navbar logo="https://students.masaischool.com/static/media/masai-logo.e5c8801d4f26d2da036ec9e4b93cb202.svg" />
+                <Sidebar count={101} isVisible={true} />
+                <Main 
+                numberList={["one","two","three","four"]} 
+                UserDetails={{
+                    name:"Pal",
+                    address: {
+                        street: "3rd Street",
+                        city: "Vadodara",
+                        state: "Gujarat"
+                    },
+                }} />
+                <Footer foo={foo} />
+            </>
+        );
+    }
+    
+    let rootElement = ReactDOM.createRoot(document.getElementById("root"));
+    rootElement.render(<App />);
+  </script>
+</html>
